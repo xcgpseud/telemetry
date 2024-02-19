@@ -1,0 +1,5 @@
+UI = {
+    ContextMenus = {},
+    ContextMenuOptions = {},
+    Dialogues = {},
+}
