@@ -52,6 +52,4 @@ CREATE TABLE IF NOT EXISTS telemetry_speed_tests (
 
 > A link to our [VIDEO](https://www.youtube.com/) for more information
 
-> A link to our [DISCORD](https://discord.gg/KfWbcazTz8) for support
-
 > A link to [FONT AWESOME](https://fontawesome.com/search?o=r&m=free) for free icons
