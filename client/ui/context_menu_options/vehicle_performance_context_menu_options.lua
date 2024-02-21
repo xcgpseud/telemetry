@@ -53,7 +53,7 @@ function UI.ContextMenuOptions.VehiclePerformance.GetVehiclePerformanceUpgradeCo
                 title = "Upgrade with custom function",
                 description = "Run the defined custom function to upgrade the current vehicle",
                 icon = "upload",
-                event = "vib_telemetry:events:client:config:custom:custom_upgrade_event",
+                event = "telemetry:events:client:config:custom:custom_upgrade_event",
                 args = {
                     Vehicle = vehicle,
                 },
@@ -62,7 +62,7 @@ function UI.ContextMenuOptions.VehiclePerformance.GetVehiclePerformanceUpgradeCo
                 title = "Downgrade with custom function",
                 description = "Run the defined custom function to downgrade the current vehicle",
                 icon = "download",
-                event = "vib_telemetry:events:client:config:custom:custom_downgrade_event",
+                event = "telemetry:events:client:config:custom:custom_downgrade_event",
                 args = {
                     Vehicle = vehicle,
                 },

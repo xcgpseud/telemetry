@@ -5,7 +5,7 @@ function UI.ContextMenus.Main.OpenMainContextMenu()
 
     Utils.DisplayContext({
         id = MENUS.MAIN,
-        title = "Vibrant Telemetry",
+        title = "Telemetry",
         options = options,
     })
 end

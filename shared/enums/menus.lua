@@ -1,4 +1,4 @@
-local prefix = "vib_telemetry:menus"
+local prefix = "telemetry:menus"
 
 local function e(path)
     return ("%s:%s"):format(prefix, path)

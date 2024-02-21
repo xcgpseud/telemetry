@@ -64,8 +64,7 @@ function SpeedTestService.RunBrakingCheck(currentSpeedInMph)
     end
 
     if currentSpeedInMph < Context.SpeedTest.Braking.SpeedsRecorded[Context.SpeedTest.Braking.CurrentSpeedKey].SpeedInMph then
-        Context.SpeedTest.Braking.SpeedsRecorded[Context.SpeedTest.Braking.CurrentSpeedKey].TimestampWhenReached =
-            timestamp
+        Context.SpeedTest.Braking.SpeedsRecorded[Context.SpeedTest.Braking.CurrentSpeedKey].TimestampWhenReached = timestamp
         Context.SpeedTest.Braking.CurrentSpeedKey = Context.SpeedTest.Braking.CurrentSpeedKey - 1
     end
 
@@ -340,7 +339,7 @@ function SpeedTestService.RunMultipleTests(vehicles, type, groupId, categoryName
 
         if data.type == TestType.WithCustomUpgrades then
             Utils.NotifyPlayer("Upgrading this vehicle with CUSTOM function, please wait...")
-            TriggerEvent("vib_telemetry:events:client:config:custom:custom_upgrade_event", {
+            TriggerEvent("telemetry:events:client:config:custom:custom_upgrade_event", {
                 Vehicle = vehicle,
             })
         end
