@@ -134,24 +134,24 @@ Config = {
 
 -- Custom events for upgrade/downgrade options if our default ones don't work for you!
 
-RegisterNetEvent("vib_telemetry:events:client:config:custom:custom_upgrade_event", function(args)
+RegisterNetEvent("_telemetry:events:client:config:custom:custom_upgrade_event", function(args)
     -- The vehicle we are currently in, from the Shared Vehicles files
     local vehicle = args.Vehicle
 
     -- Just our current event to trigger upgrades on the current vehicle
-    TriggerEvent("vib_telemetry:events:client:c:vp:pu:ENABLE_ALL_EXCEPT_ARMOUR")
+    TriggerEvent("_telemetry:events:client:c:vp:pu:ENABLE_ALL_EXCEPT_ARMOUR")
 end)
 
-RegisterNetEvent("vib_telemetry:events:client:config:custom:custom_downgrade_event", function(args)
+RegisterNetEvent("_telemetry:events:client:config:custom:custom_downgrade_event", function(args)
     -- The vehicle we are currently in, from the Shared Vehicles files
     local vehicle = args.Vehicle
 
     -- Just our current event to trigger downgrades on the current vehicle
-    TriggerEvent("vib_telemetry:events:client:c:vp:pu:DISABLE_ALL_EXCEPT_ARMOUR")
+    TriggerEvent("_telemetry:events:client:c:vp:pu:DISABLE_ALL_EXCEPT_ARMOUR")
 end)
 
 -- You can use the following event to run the existing performance upgrade code:
--- TriggerEvent("vib_telemetry:events:client:c:vp:pu:ENABLE_ALL_EXCEPT_ARMOUR")
+-- TriggerEvent("_telemetry:events:client:c:vp:pu:ENABLE_ALL_EXCEPT_ARMOUR")
 
 -- And the following event to run the existing performance downgrade code:
--- TriggerEvent("vib_telemetry:events:client:c:vp:pu:DISABLE_ALL_EXCEPT_ARMOUR")
+-- TriggerEvent("_telemetry:events:client:c:vp:pu:DISABLE_ALL_EXCEPT_ARMOUR")

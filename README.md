@@ -1,6 +1,6 @@
 # How to use!
 
-1. Extract the `vib_telemetry` into your server resources folder (wherever you'd like) and make sure
+1. Extract the `telemetry` into your server resources folder (wherever you'd like) and make sure
 it's enabled in the server.cfg
 2. Open up main_commands.lua - if you'd like to create an item of some kind and open this menu on item press
 rather than a command, use the client event which is called in this command. You'll find yourself re-opening
