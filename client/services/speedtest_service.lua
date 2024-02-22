@@ -281,7 +281,7 @@ function SpeedTestService.RunMultipleTests(vehicles, type, groupId, categoryName
     local player = PlayerPedId()
     Context.SpeedTest.IsRunning = true
 
-    TriggerEvent("QBCore:Command:DeleteVehicle", player)
+    Config.Custom.DeleteVehicleFunction(vehicle)
 
     for _, data in ipairs(runDetails) do
         if not Context.SpeedTest.IsRunning then
@@ -356,18 +356,29 @@ function SpeedTestService.RunMultipleTests(vehicles, type, groupId, categoryName
 
         Wait(1000)
 
+        local i = 0
+
         while SpeedTestService._IsAccelerating(vehicle) do
-            Wait(6)
+            Wait(2)
+            i = i + 1
+            if i == 100 then
+                if not IsPedInAnyVehicle(player, false) then
+                    goto FinishThisTest
+                end
+
+                i = 0
+            end
         end
 
         while GetEntitySpeed(vehicle) > 0.1 do
             TaskVehicleTempAction(player, vehicle, 24, 6)
             SetVehicleBrake(vehicle, true)
-            Wait(6)
+            Wait(2)
         end
 
         Wait(Config.WaitBetweenMajorActions)
 
+        :: FinishThisTest ::
         table.insert(results, {
             VehicleData = vehicleData,
             IsUpgraded = data.type == TestType.WithUpgrades or data.type == TestType.WithCustomUpgrades,
@@ -377,7 +388,7 @@ function SpeedTestService.RunMultipleTests(vehicles, type, groupId, categoryName
         })
 
         Wait(100)
-        TriggerEvent('QBCore:Command:DeleteVehicle', player)
+        Config.Custom.DeleteVehicleFunction(vehicle)
     end
 
     SpeedTestService.EndTests(groupId, categoryName, results, false)

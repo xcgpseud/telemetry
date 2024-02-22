@@ -1,9 +1,6 @@
 QBCore = exports['qb-core']:GetCoreObject()
 
 Config = {
-
-    Debug = true,
-
     SpeedTest = {
         -- We'll record acceleration of 0-n and braking speeds of n-0
         -- where n is each speed in this table.
@@ -21,7 +18,7 @@ Config = {
         -- This is where we wanna floor it towards
         Target = {
             Coords = vector3(-1409.37, -2342.89, 13.27),
-        }
+        },
     },
 
     --[[
@@ -125,9 +122,12 @@ Config = {
         ---@param vehicle table The vehicle entity
         -- FixVehicleFunction = nil,
         FixVehicleFunction = function(vehicle)
-            print("Custom function used to fix!")
             TriggerEvent('iens:repaira')
             TriggerEvent('vehiclemod:client:fixEverything')
+        end,
+
+        DeleteVehicleFunction = function(vehicle)
+            TriggerEvent('QBCore:Command:DeleteVehicle', vehicle)
         end,
     }
 }

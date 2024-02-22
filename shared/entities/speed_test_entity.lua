@@ -63,6 +63,6 @@ function SpeedTestEntity.CreateFromDatabaseResult(result)
         result.results_json,
         result.was_cancelled,
         result.is_deleted,
-        result.time_created
+        result.time_formatted
     )
 end
