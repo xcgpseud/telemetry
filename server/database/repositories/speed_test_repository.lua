@@ -59,10 +59,13 @@ function SpeedTestRepository.GetAllByGroupID(groupId)
             results_json,
             was_cancelled,
             is_deleted,
-            DATE_FORMAT(time_created, '%D %b %Y at %H:%i') AS time_created
+            DATE_FORMAT(time_created, '%D %b %Y at %H:%i') AS time_formatted
         FROM telemetry_speed_tests
         WHERE   group_id = @groupId
         AND     is_deleted = 0
+        ORDER BY
+                time_created DESC
+
     ]], {
         ["@groupId"] = groupId,
     })
@@ -92,11 +95,13 @@ function SpeedTestRepository.GetAllBy(keyValues, outFunc)
             results_json,
             was_cancelled,
             is_deleted,
-            DATE_FORMAT(time_created, '%D %b %Y at %H:%i') AS time_created
+            DATE_FORMAT(time_created, '%D %b %Y at %H:%i') AS time_formatted
         FROM    telemetry_speed_tests
         WHERE 
     ]] .. table.concat(segments, " AND ") .. [[
         AND is_deleted = 0
+        ORDER BY
+            time_created DESC
     ]]
 
     local results = MySQL.query.await(query, bindings)

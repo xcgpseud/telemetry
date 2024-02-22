@@ -1,6 +1,8 @@
 QBCore = exports['qb-core']:GetCoreObject()
 
 SharedConfig = {
+    Debug = false,
+
     Vehicles = SharedUtils.GroupBy(QBCore.Shared.Vehicles, "category"),
 
     -- Note for the following:
